@@ -17,7 +17,7 @@ void Opg_1()
         Console.Write("Giv mig endnu et heltal : ");
         int heltal2 = int.Parse(Console.ReadLine());
         Console.WriteLine($"  Hej {navn}");
-        Console.WriteLine($"  {heltal1} x {heltal2} = {heltal1 * heltal2}");
+        Console.WriteLine($"  {heltal1} x {heltal2} = {MyMath.Produkt(heltal1, heltal2)}");
         Console.Write("Vil du lave en ny udregning (Ja/Nej)? ");
     } while (Console.ReadLine().Trim().ToUpper().StartsWith("J"));
 }
@@ -36,12 +36,12 @@ void Opg_2()
     Console.WriteLine();
 
     Console.WriteLine("\nSkriver 7-tabellen");
-    for (int i = 0; i < 16; i++) Console.WriteLine($"{i,3} x 7 = {i * 7,3}");
+    for (int i = 0; i < 16; i++) Console.WriteLine($"{i,3} x 7 = {MyMath.Produkt(i, 7),3}");
 
     Console.WriteLine("\nSkriver 5x10 tabel");
     for (int i = 0; i < 5; i++)
     {
-        for (int j = 0; j < 10; j++) Console.Write($"{i * j,3}");
+        for (int j = 0; j < 10; j++) Console.Write($"{MyMath.Produkt(i, j),3}");
         Console.WriteLine();
     }
 }
@@ -68,4 +68,12 @@ void Opg_3()
     for (int i = 0; i < mitArray.Length; i++) sum += mitArray[i];
     Console.WriteLine($"Summen af tallene er\n{sum,3}");
     Console.WriteLine();
+}
+
+class MyMath
+{
+    public static int Produkt(int a, int b)
+    {
+        return a * b;
+    }
 }
